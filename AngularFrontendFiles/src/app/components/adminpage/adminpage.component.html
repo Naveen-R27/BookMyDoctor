@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body{
+  background-color: #f3f5f9;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
+.header{
+    font-size: 18px;
+}
+.wrapper .sidebar {
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li {
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas {
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+  background-color: #594f8d;
+}
+
+.wrapper .sidebar ul li:hover a {
+  color: #fff;
+}
+
+.wrapper .sidebar .social_media {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a {
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content {
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header {
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info {
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div {
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px) {
+  .social_media {
+    display: none !important;
+  }
+}
+
+</style>
+</head>
+
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<body>
+<div class="wrapper">
+  <div class="sidebar">
+    <h2>ADMIN</h2>
+    <ul>
+      <li><button (click)='toggleShowTable()' class="btn btn-primary">View Doctor</button></li>
+      <br>
+      <li><button (click)='toggleShowTable1()' class="btn btn-primary">View Patients</button></li>
+      <br>
+      <li><button (click)='toggleShowTable2()' class="btn btn-primary">View Appointments</button></li>
+      <br>
+      <li><a href="adddoc" style="text-decoration: none;"><i class="fas fa-address-card"></i>ADD Doctor</a></li>
+      <br>
+      <li><a style="text-decoration: none;" href="https://www.who.int/"><i class="fas fa-project-diagram"></i>WHO</a></li>
+      <br><br><br><br><br><br><br><br><br><br>
+      
+      <li><a href="" style="text-decoration: none;"><i class="fas fa-map-pin"></i>Exit</a></li>
+    </ul>
+    
+  </div>
+  <div class="main_content">
+    <div class="header" style="font-weight: bold;">BOOK MY DOCTOR</div>
+    <div class="info">
+        <div class="container">
+            <p style="font-size:25px;font-weight: bolder;"> ~ HELATH IS THE MOST EXPENSIVE SUSTENANCE ~</p>
+            <br>
+            <br>
+            <table *ngIf='showTable' class="table table-striped">
+                <thead>
+            <tr>
+                <th style="font-size: 20px;">Doctor ID</th>
+                <th style="font-size: 20px;">DoctorName</th>
+                <th style="font-size: 20px;">DoctorSpeciality</th>
+                <th style="font-size: 20px;" >DoctorLocation</th>
+                <th style="font-size: 20px;">DoctorMobile</th>
+                <th style="font-size: 20px;">DoctorHospital</th>
+                <th style="font-size: 20px;">DoctorEmail</th>
+                <th style="font-size: 20px;">Charged per Visit</th>
+             </tr>
+                </thead>
+                <tbody>
+                    <!-- interpolationoperator {{}} gives value -->
+            <tr *ngFor="let d of doctors">
+           
+            <td style="font-weight: bold;"> {{d.doctorId}} </td>  
+            <td style="font-weight: bold;"> {{d.doctorName}}</td>
+            <td style="font-weight: bold;"> {{d.speciality}}</td>
+            <td style="font-weight: bold;"> {{d.location}}</td>
+            <td style="font-weight: bold;"> {{d.mobileNo}}</td>
+            <td style="font-weight: bold;"> {{d.hospitalName}}</td>
+            <td style="font-weight: bold;"> {{d.email}}</td>
+            <td style="font-weight: bold;"> {{d.chargedPerVisit}}</td>
+            <td style="font-weight: bold;"><button (click) = "modifydoc(d.doctorId)" class="btn btn-primary">Update Doctor</button></td>
+           <!-- <td><button (click) = "appointdoc(d.doctorId)" class="btn btn-primary">Book Appointment</button></td> -->
+            <td><button (click) = "removedoctor(d.doctorId)" class="btn btn-primary">Remove Doctor</button></td>
+            
+            </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!--patient table-->
+     <div class="container">
+    <table *ngIf='showTable1' class="table table-striped">
+        <thead>
+    <tr>
+        <th style="font-size: 20px;">PatientID</th>
+        <th style="font-size: 20px;">PatientName</th>
+        <th style="font-size: 20px;">PatientAge</th>
+        <th style="font-size: 20px;">PatientEmail</th>
+        <th style="font-size: 20px;">PatientMobile</th>
+        <th style="font-size: 20px;">PatientGender</th>
+        <th style="font-size: 20px;">PatientAddress</th>
+     </tr>
+        </thead>
+        <tbody>
+            <!-- interpolationoperator {{}} gives value -->
+            <tr *ngFor="let p of patients">
+                <td style="font-weight: bold;"> {{p.patientId}}</td>
+                <td style="font-weight: bold;"> {{p.patientName}}</td>
+                <td style="font-weight: bold;"> {{p.age}}</td>
+                <td style="font-weight: bold;"> {{p.email}}</td>
+                <td style="font-weight: bold;"> {{p.mobileNo}}</td>
+                <td style="font-weight: bold;"> {{p.gender}}</td>
+                <td style="font-weight: bold;"> {{p.address}}</td>
+                <td style="font-weight: bold;"><button (click) = "removepatient(p.patientId)" class="btn btn-primary">Remove Patient</button></td>
+                
+                </tr>
+        </tbody>
+    </table>
+    
+    </div>
+
+    <!--Appointment table-->
+
+    <div class="container">
+      <table *ngIf='showTable2' class="table table-striped">
+          <thead>
+      <tr>
+          <th style="font-size: 20px;">Appointment ID</th>
+          <th style="font-size: 20px;">Appointment Date</th>
+          <th style="font-size: 20px;">Doctor ID</th>
+          <th style="font-size: 20px;">Doctor Name</th>
+          
+       </tr>
+          </thead>
+          <tbody>
+              <!-- interpolationoperator {{}} gives value -->
+              <tr *ngFor="let a of appoint">
+                  <td style="font-weight: bold;"> {{a.appointmentId}}</td>
+                  <td style="font-weight: bold;"> {{a.appointmentDate}}</td>
+                  <td style="font-weight: bold;"> {{a.doctorId}}</td>
+                  <td style="font-weight: bold;"> {{a.doctorName}}</td>
+
+                  </tr>
+          </tbody>
+      </table>
+      
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent" >
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+   <div style="margin-left: 5%;">
+    <div class="fadeIn first">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCiibuUVOwbdi_h10RtaHy9SuOi7moZpgXgf9_fYVOj5VdDQgkw-KwDSB7-L1AAwg38ow&usqp=CAU" id="icon" alt="User Icon" />
+      </div>
+     
+  <div>
+    <h4 class="fadeIn first">NEW PATIENT REGISTER</h4>
+  </div>
+   </div>
+<br>
+<br>
+    <!-- Login Form -->
+    <form ngNativeValidate (ngSubmit)="registeruser()" >
+        <div class="form-row fadeIn second" style="margin-left: 1%;">
+            <div class="form-holder">
+                <input type="text" placeholder="Patient Name" [(ngModel)]="patients.patientName" name="name" class="form-control" required />
+            </div>
+            <div class="form-holder">
+                <input type="number" placeholder="Phone Number" [(ngModel)]="patients.mobileNo" name="number" class="form-control" required />
+            </div>
+        </div>
+            <div class="form-row fadeIn third"style="margin-left: 1%;">
+                <div class="form-holder">
+                    <input type="email" placeholder="Your Email" [(ngModel)]="patients.email" name="email" class="form-control" required />
+                </div>
+                <div class="form-holder">
+                    <input type="password" placeholder="Password" [(ngModel)]="patients.password" name="password" class="form-control" required />
+                </div>
+            </div>
+     
+        <div class="form-row fadeIn third" style="margin-left: 1%;">
+            <div class="form-holder">
+                <input type="text" placeholder="Blood Group" [(ngModel)]="patients.bloodGroup" name="bg" class="form-control" required />
+            </div>
+            <div class="form-holder">
+                <input type="text" placeholder="Gender" [(ngModel)]="patients.gender" name="gen" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-row fadeIn fourth" style="margin-left: 1%;">
+            <div class="form-holder">
+                <input type="number" placeholder="Age" [(ngModel)]="patients.age" name="age" id="" class="form-control" required />
+            </div>
+            <div class="form-holder">
+                <input type="text" placeholder="Address" [(ngModel)]="patients.address" name="address" class="form-control" required />
+            </div>
+        </div>
+        <br>
+        <br>
+
+      <input type="submit" class="fadeIn fourth" value="Register">
+      <br>
+      <a class="underlineHover fadeIn fourth" href="#"> <h5>RETURN HOME</h5></a>
+
+      
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+        <!--<a class="underlineHover fadeIn fourth" href="patientpage"> <h5> Already an User? Click here to Login</h5></a>-->
+        <span style="font-style:oblique;font-weight:bold">Already an User?</span><br>
+        <a href="login" class="underlineHover fadeIn fourth"><h5>Click here to Login</h5></a>
+
+    </div>
+
+  </div>
+</div>

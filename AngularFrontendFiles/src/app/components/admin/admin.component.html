@@ -1,0 +1,35 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.shareicon.net/data/256x256/2016/07/01/625824_key_256x256.png" id="icon" alt="User Icon" />
+    </div>
+   
+<div>
+  <h3>ADMIN PANNEL LOGIN</h3>
+</div>
+<br>
+<br>
+    <!-- Login Form -->
+    <form ngNativeValidate (ngSubmit)="login()">
+      <input style="font-size: 20px;" type="text" id="login" class="fadeIn second" name="login" placeholder="Email" required />
+      <input style="font-size: 20px;" type="password" id="password" pattern="123456" class="fadeIn third" name="login" placeholder="password" required />
+      <br>
+      <br>
+      <input type="submit" class="fadeIn fourth" value="Log In" >
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Back To Home</a>
+    </div>
+
+  </div>
+</div>

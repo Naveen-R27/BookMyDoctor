@@ -1,0 +1,62 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent" >
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+   <div style="margin-left: 5%;">
+    <div class="fadeIn first">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5tmYa9h8WZLC9sbsqXugn8didD9SXk5LeUw&usqp=CAU" id="icon" alt="User Icon" />
+      </div>
+     
+  <div>
+    <h1 class="fadeIn first">FEEDBACK</h1>
+  </div>
+   </div>
+<br>
+<br>
+    <!-- Login Form -->
+    <form (ngSubmit)="addfeedback()">
+        <div class="form-row fadeIn second" style="margin-left: 1%;">
+            <div class="form-holder">
+                <input type="text" placeholder="Patient Name" [(ngModel)]="feedback.patientName" name="id" class="form-control">
+            </div>
+            
+            <div class="form-holder">
+                <input type="text" placeholder="Doctor Name" [(ngModel)]="feedback.doctorName" name="name" class="form-control">
+            </div>
+            
+        </div>
+        <div class="form-row fadeIn third"style="margin-left: 1%;">
+                <div class="form-holder">
+                    <input type="number"  placeholder="Rating" [(ngModel)]="feedback.rating" name="name" class="form-control">
+                </div>
+
+                <div class="form-holder">
+                    <input type="text" placeholder="FeedBack Comment" [(ngModel)]="feedback.feedbackComment" name="name" class="form-control">
+                </div>
+
+               
+            </div>
+     
+            
+        <br>
+        <br>
+
+      <input type="submit" class="fadeIn fourth" value="SEND">
+
+      <!-- <input type="submit" class="fadeIn fourth" value="Sign in With Google"> -->
+        
+
+      
+
+    </form>
+
+   
+
+  </div>
+</div>
